@@ -1,2 +1,2 @@
-# moveMouse
-科学准确的鼠标操作
+# Mouse helper
+This project is built for https://apps.automeris.io/ for moving mouse accurately.

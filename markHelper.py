@@ -12,9 +12,17 @@ def getch():
     return ch
  
 button_delay = 0.0
-
 deltaX = 1
 deltaY = 1
+
+# from sys import platform
+# if platform == "linux" or platform == "linux2":
+#     # linux
+# elif platform == "darwin":
+#     # OS X
+# elif platform == "win32":
+#     # Windows...
+
 while True:
     char = getch()
     if (char == "p"):
@@ -48,11 +56,16 @@ while True:
         time.sleep(button_delay)
     elif (char == "m"):
         print("m pressed")
-        time.sleep(button_delay)
+        # time.sleep(button_delay)
         pyautogui.click()
-        pyautogui.keyDown('alt')
-        pyautogui.typewrite(['tab'])
-        pyautogui.keyUp('alt')
+        if sys.platform == 'darwin':
+            pyautogui.keyDown('command')
+            pyautogui.typewrite(['tab'])
+            pyautogui.keyUp('command')
+        else:
+            pyautogui.keyDown('alt')
+            pyautogui.typewrite(['tab'])
+            pyautogui.keyUp('alt')
 
     else:
         pass
